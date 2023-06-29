@@ -1,6 +1,8 @@
 const redis=require("redis")
 
-const redisClient=redis.createClient(process.env.REDIS_PORT,process.env.REDIS_HOST)
+const redisClient=redis.createClient({
+    url:process.env.REDIS_HOST
+})
 redisClient.on("error", (error)=>{
     console.log("error:",error)
 })

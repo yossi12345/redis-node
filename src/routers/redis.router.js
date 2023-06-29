@@ -39,6 +39,7 @@ router.get("/get-list/:key",async(req,res)=>{
     }
 })
 router.post("/set-hash",async(req,res)=>{
+    console.log(";lko;k")
     try{
         for (const key in req.body.hash){
             console.log("key",key,"val",req.body.hash[key])
@@ -53,6 +54,7 @@ router.post("/set-hash",async(req,res)=>{
 router.get("/get-hash/:key",async(req,res)=>{
     try{
         const hash=await redisClient.hGetAll(req.params.key)
+        console.log(hash)
         res.send(hash)
     }catch(err){
         console.log(err)
